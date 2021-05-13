@@ -51,7 +51,7 @@
                                     <button type="submit" class="btn btn-success btn-block mb-2" name="submit_signup_btn">Sign Up</button>
 
                                     <div class="signup mb-2">
-                                        <span class="text-light">Already have an account? </span><a href="signin.php" class="text-success   "> Sign In</a>
+                                        <span class="text-light">Already have an account? </span><a href="index.php" class="text-success   "> Sign In</a>
                                     </div>
                                     
                                 </form>

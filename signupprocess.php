@@ -68,7 +68,7 @@ if(isset($_POST['submit_signup_btn']))
                     $hashedpass = password_hash($password1, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "sss", $username, $hashedpass, $email);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ./signin.php?error=success");
+                    header("Location: ./index.php?error=success");
                     exit();
                 }
             }

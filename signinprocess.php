@@ -7,7 +7,7 @@ if(isset($_POST['submit_signin_btn']))
     $password = $_POST['password1'];
     if(empty($username) || empty($password))
     {
-        header("Location: ./signin.php?error=emptyfields");
+        header("Location: ./index.php?error=emptyfields");
         exit();
     }
     else
@@ -16,7 +16,7 @@ if(isset($_POST['submit_signin_btn']))
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql))
         {
-            header("Location: ./signin.php?error=sqlerror");
+            header("Location: ./index.php?error=sqlerror");
             exit();
         }
         else
@@ -28,7 +28,7 @@ if(isset($_POST['submit_signin_btn']))
             {
                 if(password_verify($password, $row['pass']) == false)
                 {
-                    header("Location: ./signin.php?error=wrongpassword&username=".$username);
+                    header("Location: ./index.php?error=wrongpassword&username=".$username);
                     exit();
                 }
                 else if(password_verify($password, $row['pass']) == true)
@@ -40,13 +40,13 @@ if(isset($_POST['submit_signin_btn']))
                     exit();
                 }
                 else{
-                    header("Location: ./signin.php?error=wrongpassword&username=".$username);
+                    header("Location: ./index.php?error=wrongpassword&username=".$username);
                     exit();
                 }
             }
             else
             {
-                header("Location: ./signin.php?error=wrongusername");
+                header("Location: ./index.php?error=wrongusername");
                 exit();
             }
         }
@@ -54,7 +54,7 @@ if(isset($_POST['submit_signin_btn']))
 }
 else
 {
-    header("Location: ./signin.php?error=akelkhara");
+    header("Location: ./index.php?error=akelkhara");
     exit();
 }
 
