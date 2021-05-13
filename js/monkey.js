@@ -147,7 +147,7 @@ function Bot(){
                 picked = Object.assign({}, this.DrawCard);
                 picked.Viewed = true;
                 this.Cards[index] = Object.assign({}, picked);
-                element.setAttribute("src", "/Monkey/imgs/backcard.png");
+                element.setAttribute("src", "/imgs/backcard.png");
                 resolve();
             }, 1500);
         }); 
@@ -218,7 +218,7 @@ function Bot(){
         this.DrawCard = deck.Cards.pop();
         let botdiv = document.getElementById("botpick");
         this.addPickCardClass(botdiv);
-        botdiv.setAttribute("src", "/Monkey/imgs/backcard.png");
+        botdiv.setAttribute("src", "/imgs/backcard.png");
         setTimeout(game.botAction, 1500);
     }
 
@@ -283,7 +283,7 @@ function Bot(){
         console.log("this els are" + els);
         for(var i=0; i<els.length; i++){
             let index = parseInt(els[i].getAttribute('index'));
-            els[i].setAttribute("src", "./imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
+            els[i].setAttribute("src", "/imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
         }
     }
 }
@@ -354,7 +354,7 @@ function Player(){
         this.DrawCard = deck.Cards.pop();
         let playerdiv = document.getElementById("playerpick");
         this.addPickCardClass(playerdiv);
-        playerdiv.setAttribute("src", "/Monkey/imgs/" + this.DrawCard.Value + this.DrawCard.Suit + ".png");
+        playerdiv.setAttribute("src", "/imgs/" + this.DrawCard.Value + this.DrawCard.Suit + ".png");
         var aux = new Player();
         aux.flipButtons(true);
         if(player.cardsLeft() == 0)
@@ -559,7 +559,7 @@ function Player(){
         let els = document.querySelectorAll(".image-player");
         for(var i=0; i<els.length; i++){
             let index = parseInt(els[i].getAttribute('index'));
-            els[i].setAttribute("src", "./imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
+            els[i].setAttribute("src", "/imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
         }
     }
 }
@@ -589,14 +589,14 @@ function Monke(){
             }
             bot.Cards.push(Object.assign({}, card));
             img = game.getElement("image-bot", i-1);
-            img.setAttribute("src", "/Monkey/imgs/backcard.png");
+            img.setAttribute("src", "/imgs/backcard.png");
         }
         for(var i=1; i<=4; i++)
         {
             card = deck.Cards.pop();
             player.Cards.push(Object.assign({}, card));
             img = game.getElement("image-player", i-1);
-            img.setAttribute("src", "/Monkey/imgs/backcard.png");
+            img.setAttribute("src", "/imgs/backcard.png");
         }
     }
 
@@ -629,7 +629,7 @@ function Monke(){
         game.GroundCards.push(game.GroundCard);
         console.log("goundcard is : " + game.GroundCard.Value + game.GroundCard.Suit);
         let img = document.getElementById("ground");
-        img.setAttribute("src", "/Monkey/imgs/" + game.GroundCard.Value + game.GroundCard.Suit + ".png");
+        img.setAttribute("src", "/imgs/" + game.GroundCard.Value + game.GroundCard.Suit + ".png");
     }
 
     this.swapCards = function() {
@@ -669,7 +669,7 @@ function Monke(){
     this.flipCardBack = async function(element) {
         return new Promise(resolve => {
             setTimeout(() => {
-                element.setAttribute("src", "/Monkey/imgs/backcard.png");
+                element.setAttribute("src", "/imgs/backcard.png");
                 resolve();
             }, 2000);
         });
@@ -693,13 +693,13 @@ function Monke(){
                element.classList.add("flip-image");
                let i = this.getIndexValue(element);
                setTimeout(function(){
-                   element.setAttribute("src", "/Monkey/imgs/" + player.Cards[i].Value + player.Cards[i].Suit + ".png");
+                   element.setAttribute("src", "/imgs/" + player.Cards[i].Value + player.Cards[i].Suit + ".png");
                }, 100);
                setTimeout(function(){
                    console.log("OK babe");
                    element.classList.remove("flip-image");
                    element.classList.add("unflip-image");
-                   element.setAttribute("src", "/Monkey/imgs/backcard.png");
+                   element.setAttribute("src", "/imgs/backcard.png");
                }, 2000);
                setTimeout(function(){
                     console.log("ok babe again");
@@ -724,7 +724,7 @@ function Monke(){
                 if (player.DrawCard.cardValue() == 6) {
                     if (this.isPlayerDiv(element)) {
                         let card = player.Cards[this.getIndexValue(element)];
-                        element.setAttribute("src", "/Monkey/imgs/" + card.Value + card.Suit + ".png");
+                        element.setAttribute("src", "/imgs/" + card.Value + card.Suit + ".png");
                         await this.flipCardBack(element);
                         console.log("Viewed card of index: " + this.getIndexValue(element));
                         player.removeDrawImage();
@@ -739,7 +739,7 @@ function Monke(){
                 else if (player.DrawCard.cardValue() == 8) {
                     if (this.isBotDiv(element)) {
                         let card = bot.Cards[this.getIndexValue(element)];
-                        element.setAttribute("src", "/Monkey/imgs/" + card.Value + card.Suit + ".png");
+                        element.setAttribute("src", "/imgs/" + card.Value + card.Suit + ".png");
                         await this.flipCardBack(element);
                         console.log("Viewed bot card of index: " + this.getIndexValue(element));
                         player.removeDrawImage();
@@ -858,7 +858,7 @@ function Monke(){
                     } else {
                         pickedcard.Value = player.DrawCard.Value;
                         pickedcard.Suit = player.DrawCard.Suit;
-                        element.setAttribute("src", "/Monkey/imgs/backcard.png");
+                        element.setAttribute("src", "/imgs/backcard.png");
                     }
                     player.removeDrawImage();
                     player.nothingToDo();

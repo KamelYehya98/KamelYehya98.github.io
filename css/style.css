@@ -4,7 +4,7 @@
         box-shadow: 10px 5px 5px #050505;
     }
     body{
-        background-image: url("./imgs/background.jpg");
+        background-image: url("/imgs/background.jpg");
     }
 }
 @media only screen and (min-width: 1400px){
@@ -12,7 +12,7 @@
         font-size: 18em;
     }
     body{
-        background-image: url("./imgs/background.jpg");
+        background-image: url("/imgs/background.jpg");
     }
 }
 
@@ -21,7 +21,7 @@
         font-size: 15em;
     }
     body{
-        background-image: url("./imgs/background.jpg");
+        background-image: url("/imgs/background.jpg");
     }
 }
 
@@ -30,7 +30,7 @@
           font-size: 13em;
       }
       body{
-        background-image: url("./imgs/background.jpg");
+        background-image: url("/imgs/background.jpg");
     }
 }
 
@@ -39,7 +39,7 @@
           font-size: 10em;
       }
       body{
-        background-image: url("./imgs/background.jpg");
+        background-image: url("/imgs/background.jpg");
     }
 }
 
@@ -48,7 +48,7 @@
         font-size: 5em;
     }
     body{
-        background-image: url("./imgs/backgroundsmall.jpg");
+        background-image: url("/imgs/backgroundsmall.jpg");
     }
 }
 

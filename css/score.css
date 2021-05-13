@@ -9,7 +9,7 @@
         font-size: 1.4em;
     }
     body{
-        background-image: url("imgs/backgroundsmall.jpg");
+        background-image: url("/imgs/backgroundsmall.jpg");
     }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -20,7 +20,7 @@
         font-size: 1.6em;
     }
     body{
-        background-image: url("KamelYehya98.github.io/imgs/backgroundsmall.jpg");
+        background-image: url("/imgs/backgroundsmall.jpg");
     }
 }
 @media only screen and (min-width: 768px) {
