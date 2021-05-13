@@ -1,12 +1,8 @@
 <?php
-//host: ec2-54-87-112-29.compute-1.amazonaws.com
-//database: d9m6c0k7qrk672
-//users: qzlmlzgvvrxuus
-//pass: 6146d8bb53db377168bf8f4a1b47ea1caa86d8c906e790597be8259a0fe9cf25
-$servername = "ec2-54-87-112-29.compute-1.amazonaws.com";
-$username = "qzlmlzgvvrxuus";
-$password = "6146d8bb53db377168bf8f4a1b47ea1caa86d8c906e790597be8259a0fe9cf25";
-$dbname = "d9m6c0k7qrk672";
+$servername = "us-cdbr-east-03.cleardb.com";
+$username = "b0d4a32ee82d23";
+$password = "e056e410";
+$dbname = "heroku_609325a5102c7ea";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if(!$conn)
