@@ -1,0 +1,70 @@
+@media only screen and (min-width: 0px) and (max-width: 575px) {
+    #welcome_message, #username_message, .table_caption{
+        font-size: 2em;
+    }
+    #logout_btn{
+        font-size: 0.7em;
+    }
+    .text_tutorial{
+        font-size: 1.4em;
+    }
+    body{
+        background-image: url("/Monkey/imgs/backgroundsmall.jpg");
+    }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    #welcome_message, #username_message, .table_caption{
+        font-size: 3em;
+    }
+    .text_tutorial{
+        font-size: 1.6em;
+    }
+    body{
+        background-image: url("/Monkey/imgs/backgroundsmall.jpg");
+    }
+}
+@media only screen and (min-width: 768px) {
+    #welcome_message, #username_message, .table_caption{
+        font-size: 4em;
+    }
+    .text_tutorial{
+        font-size: 1.4em;
+    }
+    body{
+        background-image: url("/Monkey/imgs/background.jpg");
+    }
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+body{
+    background-size: 100vw 100vh;
+    font-family: 'Comic Sans MS';
+    background-attachment: fixed;
+}
+#welcome_message{
+    font-weight: 700;
+    color: white;
+}
+#username_message{
+    font-weight: 700;
+    color: rgb(211, 214, 0);
+}
+.table_caption{
+    font-weight: 400;
+    color: white;
+}
+.text_tutorial{
+    font-weight: 700;
+    color: white;
+}
+a:hover{
+    color:white;    
+}
+
+.gradient-custom {
+    background: -webkit-linear-gradient(to right, rgba(26, 26, 26, 0.8), rgba(85, 85, 85, 0.5));
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.8), rgba(85, 85, 85, 0.5))
+}

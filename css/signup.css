@@ -1,0 +1,38 @@
+@media only screen and (min-width: 768px){
+    #card{
+        width: 50%;
+    }
+    #image_icon{
+        width: 20%;
+    }
+    body{
+        background-image: url("/Monkey/imgs/background.jpg");
+    }
+}
+
+@media only screen and (max-width: 767px){
+    #card{
+        width: 80%;
+    }
+    #image_icon{
+        width: 30%;
+    }
+    body{
+        background-image: url("/Monkey/imgs/backgroundsmall.jpg");
+    }
+}
+
+#card{
+    border-radius: 1em;
+}
+body{
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+}
+#submit_btn{
+    width: 100%;
+}
+.gradient-custom {
+    background: -webkit-linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(41, 41, 41, 0.5));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(41, 41, 41, 0.5))
+}
