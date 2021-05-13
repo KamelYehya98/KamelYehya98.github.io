@@ -56,7 +56,6 @@ if(isset($_POST['submit_signup_btn']))
             }
             else
             {
-                //create users
                 $sql = "call createUser(?, ?, ?);";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql))
