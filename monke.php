@@ -28,7 +28,7 @@
             <input name="botscore" type="text" value="" id="botscore_form">
             <button name="submit_btn" type="submit" id="submit_button"></button>
         </form>
-        <div class="d-flex justify-content-center align-items-center" style="width: 100vw;">
+        <div class="d-flex justify-content-center align-items-center" id="themaincontainer" style="width: 100vw;">
             <div class="container"style="width: 100vw;">  
                 <div class="row d-md-flex flex-md-row justify-content-md-between flex-md-nowrap d-flex flex-column align-content-around addopacitymonkey">
                     <div class="col-md-6 col-12 col-sm-12 d-flex justify-content-end justify-content-md-start m-0 p-0 order-md-1" id="assets-container-bot">

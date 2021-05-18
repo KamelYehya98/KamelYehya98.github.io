@@ -6,6 +6,9 @@
     body{
         background-image: url("/imgs/background.jpg");
     }
+    #themaincontainer{
+        height: 100vh;
+    }
 }
 @media only screen and (min-width: 1400px){
     #monkeydiv{
