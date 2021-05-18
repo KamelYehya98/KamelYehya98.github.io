@@ -1174,6 +1174,7 @@ function Monke(){
     this.calculateResult = function() {
         setTimeout(player.showCards(), 2000);
         setTimeout(bot.showCards(), 2000);
+        setTimeout(bot.showCards(), 4000);
         setTimeout(sendForm, 7000);
     }
 
