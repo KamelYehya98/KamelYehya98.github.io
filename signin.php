@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/signup.css">
-    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/signin.css">
+    <title>Sign In</title>
 </head>
 <body>
     <div class="d-flex justify-content-center align-items-center" style="width: 100vw; height: 100vh;">
@@ -20,21 +20,16 @@
                 <div class="d-flex justify-content-center">
                     <div class="card login-form gradient-custom" id="card">
                         <div class="card-body">
-                            <h1 class="card-title text-start text-success mb-2">REGISTER</h1>
+                            <h1 class="card-title text-start text-success mb-2">SIGN IN</h1>
                             <div class="card-text">
-                                <div class="text-center" id="errors_div">
+                                <div id="errors_div" class="text-center bg-danger text-light ">
                                 </div>
-                                <form action="./signupprocess.php" method="POST">
-                                    <div class="form-group mb-2">
-                                        <label for="email" class="text-light">Email Address</label>
-                                        <input type="email" class="form-control form-control-sm" name="email" placeholder="example@gmail.com"
-                                        value=<?php if(isset($_GET['mail'])){echo $_GET['mail'];}?>>
-                                    </div>
+                                <form action="./signinprocess.php" method="POST">
 
                                     <div class="form-group mb-2">
                                         <label for="username" class="text-light">User Name</label>
                                         <input type="text" class="form-control form-control-sm" name="username"  placeholder="NoobMaster69"
-                                        value=<?php if(isset($_GET['username'])){echo $_GET['username'];}?>>
+                                                    value=<?php if(isset($_GET['username'])){echo $_GET['username'];}?>>
                                     </div>
 
                                     <div class="form-group mb-2">
@@ -44,16 +39,10 @@
                                             placeholder="Password">
                                     </div>
 
-                                    <div class="form-group mb-2">
-                                        <!-- <a href="#" style="float: right; font-size: 12px;" class="text-primary">Forgot Password?</a> -->
-                                        <input type="password" class="form-control form-control-sm" name="password2"
-                                            placeholder="Confirm Password">
-                                    </div>
-
-                                    <button type="submit" class="btn btn-success btn-block mb-2" name="submit_signup_btn">Sign Up</button>
+                                    <button type="submit" class="btn btn-success btn-block mb-2" name="submit_signin_btn">Sign In</button>
 
                                     <div class="signup mb-2">
-                                        <span class="text-light">Already have an account? </span><a href="signin.php" class="text-success   "> Sign In</a>
+                                        <span class="text-light">Don't have an account?  <span><a href="./signup.php" class="text-success"> Sign Up</a>
                                     </div>
                                     
                                 </form>
@@ -74,5 +63,5 @@
               </script>';
     }
     ?>
-</body>}
+</body>
 </html>

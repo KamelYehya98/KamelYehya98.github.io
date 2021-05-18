@@ -2,6 +2,7 @@
     session_start();
     $username = $_SESSION['username'];
     $id = $_SESSION['id'];
+    $store = $_SESSION['store'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +68,7 @@
             <div class="col-12 mt-2">
                 <table class="table table-dark table-striped" id="table_id">
                     <div class="d-flex justify-content-start justify-content-between flex-row align-items-center">
-                        <button id="game_btn" class="btn btn-warning order-1 mt-3"><a href="./monke.php">PLAY GAME</a></button>
+                        <button id="game_btn" class="btn btn-warning order-1 mt-3"><a href="./index.php">PLAY GAME</a></button>
                         <span class="table_caption order-0">
                                 Game Log 
                         </span>
@@ -90,15 +91,19 @@
     <script src="./js/score.js"></script>
     <?php
         require 'dbhandler.php';
-        if(isset($_GET['submit_btn']))
+        if(isset($_POST['submit_btn']) && isset($_SESSION['store']))
         {
-            $sql_1 = "call finishgame(".intval($_GET['playerscore']).", ".intval($_GET['botscore']).", ".$id.");";
-            mysqli_query($conn, $sql_1);
+            if($_SESSION['store'] == true)
+            {
+                $sql_1 = "call finishgame(".intval($_POST['playerscore']).", ".intval($_POST['botscore']).", ".$id.");";
+                mysqli_query($conn, $sql_1);
+                $_SESSION['store'] = false;
+            }
         }
     ?>
     <?php
         require 'dbhandler.php';
-        if(isset($_GET['submit_btn']) || isset($_GET['login']))
+        if(isset($_POST['submit_btn']) || isset($_GET['login']))
         {
             $sql_2 = "SELECT * FROM player WHERE id=".$id;
             if($result_2 = mysqli_query($conn, $sql_2)){
@@ -110,7 +115,7 @@
     ?>
     <?php
         require 'dbhandler.php';
-        if(isset($_GET['submit_btn']) || isset($_GET['login']))
+        if(isset($_POST['submit_btn']) || isset($_GET['login']))
         {
             $sql_3 = "call getrounds($id);";
             if($result_3 = mysqli_query($conn, $sql_3))
@@ -136,7 +141,7 @@
     ?>
     <?php
         require 'dbhandler.php';
-        if(isset($_GET['submit_btn']))
+        if(isset($_POST['submit_btn']))
         {
             $sql_4 = "SELECT botwins, playerwins FROM game WHERE id=$id;";
             if($result_4 =  mysqli_query($conn, $sql_4))
@@ -156,7 +161,6 @@
                 mysqli_free_result($result_4);
             } 
         }
-
     ?>
 </body>
 </html>

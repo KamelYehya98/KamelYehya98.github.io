@@ -56,6 +56,7 @@ if(isset($_POST['submit_signup_btn']))
             }
             else
             {
+                //create users
                 $sql = "call createUser(?, ?, ?);";
                 $stmt = mysqli_stmt_init($conn);
                 if(!mysqli_stmt_prepare($stmt, $sql))
@@ -68,7 +69,7 @@ if(isset($_POST['submit_signup_btn']))
                     $hashedpass = password_hash($password1, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "sss", $username, $hashedpass, $email);
                     mysqli_stmt_execute($stmt);
-                    header("Location: ./index.php?error=success");
+                    header("Location: ./signin.php?error=success");
                     exit();
                 }
             }

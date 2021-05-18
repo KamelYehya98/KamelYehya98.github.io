@@ -122,6 +122,7 @@ function Bot(){
 
     this.throwCard = function(index) {
         return new Promise(resolve => {
+            document.getElementById("throwcardbot").click();
             let element = game.getElement("image-bot", index);
             this.imageBorder(element);
             this.imageBorder(document.getElementById("ground"));
@@ -157,11 +158,12 @@ function Bot(){
         if (game.GroundCard != null) {
             return new Promise(resolve => {
                 setTimeout(()=>{
-                    console.log("free throw bot");
+                    //console.log("free throw bot");
                     for (var i = 0; i < this.Cards.length; i++) {
                         let element = game.getElement("image-bot", i);
-                        console.log(this.Cards[i]);
+                        //console.log(this.Cards[i]);
                         if (this.Cards[i].Value != 0 && game.GroundCard.cardValue() == this.Cards[i].cardValue() && this.Cards[i].Viewed == true) {
+                                document.getElementById("freethrowbot").click();
                                 this.imageBorder(document.getElementById("ground"));
                                 this.imageBorder(element);
                                 game.setGroundCard(this.Cards[i]);
@@ -172,7 +174,7 @@ function Bot(){
                 }, 1500);
             });
         }else{
-            console.log("ground card was null so free thwo wasnt active.");
+            //console.log("ground card was null so free thwo wasnt active.");
         }
         return;
     }
@@ -181,13 +183,14 @@ function Bot(){
         let count = 0;
         for (var i = 0; i < this.Cards.length; i++)
             if (this.Cards[i].isActive()){
-                console.log(this.Cards[i]);
+                //console.log(this.Cards[i]);
                 count++;
             }
         return count;
     }
 
     this.endTurn = async function() {
+        //document.getElementById("endturnbot").click();
         player.Turn = true;
         this.Turn = false;
         await this.timerFunction(1500);
@@ -223,13 +226,15 @@ function Bot(){
     }
 
     this.checkForMonke = async function() {
-        console.log("called check for monke");
+        //console.log("called check for monke");
             if (this.cardsLeft() <= 2 && this.calculateScore() <= 3 && this.calculateScore() < player.calculateScore()) 
             {
-                console.log("gonna call me monke");
+                //console.log("gonna call me monke");
                 if(player.Monkey == false && this.Monkey == false)
                 {
-                    console.log("called monke");
+                    document.getElementById("monkebot").click();
+                    document.getElementById("monke").disabled = true;
+                    //console.log("called monke");
                     this.Monkey = true;
                     document.getElementById("monkeyaudio").play();
                     game.monkeyOpacityEnable();
@@ -242,7 +247,7 @@ function Bot(){
     }
 
     this.throwHighestCard = function() {
-        console.log("reached");
+        //console.log("reached");
         let max = 0;
         let pos = 0
         for (var i = 0; i < this.Cards.length; i++) {
@@ -280,10 +285,10 @@ function Bot(){
 
     this.showCards = function(){
         let els = document.querySelectorAll(".image-bot");
-        console.log("this els are" + els);
+        //console.log("this els are" + els);
         for(var i=0; i<els.length; i++){
             let index = parseInt(els[i].getAttribute('index'));
-            els[i].setAttribute("src", "/imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
+            els[i].setAttribute("src", "./imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
         }
     }
 }
@@ -323,8 +328,8 @@ function Player(){
 
     this.removeCard = function(index){
         let element = game.getElement("image-player", index);
-        console.log("element is: " + element);
-        console.log("function removeCard: " + this.Cards[index] + " index is: " + index);
+        //console.log("element is: " + element);
+        //console.log("function removeCard: " + this.Cards[index] + " index is: " + index);
         this.Cards[index].deActivate();
         element.parentElement.remove();
         element.remove();
@@ -353,6 +358,7 @@ function Player(){
         bot.Turn = false;
         this.DrawCard = deck.Cards.pop();
         let playerdiv = document.getElementById("playerpick");
+        document.getElementById("monke").disabled = false;
         this.addPickCardClass(playerdiv);
         playerdiv.setAttribute("src", "/imgs/" + this.DrawCard.Value + this.DrawCard.Suit + ".png");
         var aux = new Player();
@@ -499,7 +505,7 @@ function Player(){
     this.isBurntImage = function(element) { 
         if (game.isPlayerDiv(element)) {
             let card = this.Cards[parseInt(element.getAttribute("index"))];
-            console.log(card);
+            //console.log(card);
             if (card.isBurned() == true)
                 return true;
             return false;
@@ -534,6 +540,7 @@ function Player(){
     this.monke = async function() {
         if(!bot.Monkey)
         {
+            document.getElementById("monke").disabled = true;
             this.Monkey = true;
             document.getElementById("monkeyaudio").play();
             game.monkeyOpacityEnable();
@@ -549,7 +556,7 @@ function Player(){
         let count = 0;
         for (var i = 0; i < this.Cards.length; i++)
             if (this.Cards[i].isActive()){
-                console.log(this.Cards[i]);
+                //console.log(this.Cards[i]);
                 count++;
             }
         return count;
@@ -559,7 +566,7 @@ function Player(){
         let els = document.querySelectorAll(".image-player");
         for(var i=0; i<els.length; i++){
             let index = parseInt(els[i].getAttribute('index'));
-            els[i].setAttribute("src", "/imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
+            els[i].setAttribute("src", "./imgs/" + this.Cards[index].Value + this.Cards[index].Suit + ".png");
         }
     }
 }
@@ -622,12 +629,12 @@ function Monke(){
     }
 
     this.setGroundCard = function(card) {
-        console.log(card);
+        //console.log(card);
         game.GroundCard = new Card(card.Value, card.Suit, card.Index);
-        console.log(game.GroundCard);
-        console.log(this.GroundCards);
+        //console.log(game.GroundCard);
+        //console.log(this.GroundCards);
         game.GroundCards.push(game.GroundCard);
-        console.log("goundcard is : " + game.GroundCard.Value + game.GroundCard.Suit);
+        //console.log("goundcard is : " + game.GroundCard.Value + game.GroundCard.Suit);
         let img = document.getElementById("ground");
         img.setAttribute("src", "/imgs/" + game.GroundCard.Value + game.GroundCard.Suit + ".png");
     }
@@ -696,13 +703,13 @@ function Monke(){
                    element.setAttribute("src", "/imgs/" + player.Cards[i].Value + player.Cards[i].Suit + ".png");
                }, 100);
                setTimeout(function(){
-                   console.log("OK babe");
+                   //console.log("OK babe");
                    element.classList.remove("flip-image");
                    element.classList.add("unflip-image");
                    element.setAttribute("src", "/imgs/backcard.png");
                }, 2000);
                setTimeout(function(){
-                    console.log("ok babe again");
+                    //console.log("ok babe again");
                     element.classList.remove("unflip-image");
                 }, 3000);
                 viewedCardsPlayer++;
@@ -711,8 +718,12 @@ function Monke(){
                 {
                     if(NbViewedCardsPlayer <= 2)
                         player.playerTurn();
-                    else
+                    else{
                         bot.BotTurn();
+                        document.getElementById("monke").disabled = true;
+                        document.getElementById("throwcard").disabled = true;
+                        document.getElementById("endturn").disabled = true;
+                    }
                 }
                     
                 return;
@@ -726,7 +737,7 @@ function Monke(){
                         let card = player.Cards[this.getIndexValue(element)];
                         element.setAttribute("src", "/imgs/" + card.Value + card.Suit + ".png");
                         await this.flipCardBack(element);
-                        console.log("Viewed card of index: " + this.getIndexValue(element));
+                        //console.log("Viewed card of index: " + this.getIndexValue(element));
                         player.removeDrawImage();
                         this.setGroundCard(player.DrawCard);
                         await this.removeAnimation("six");
@@ -741,7 +752,7 @@ function Monke(){
                         let card = bot.Cards[this.getIndexValue(element)];
                         element.setAttribute("src", "/imgs/" + card.Value + card.Suit + ".png");
                         await this.flipCardBack(element);
-                        console.log("Viewed bot card of index: " + this.getIndexValue(element));
+                        //console.log("Viewed bot card of index: " + this.getIndexValue(element));
                         player.removeDrawImage();
                         this.setGroundCard(player.DrawCard);
                         await this.removeAnimation("eight");
@@ -810,7 +821,7 @@ function Monke(){
             else if (!this.isBotDiv(element)) {
                 let index = this.getIndexValue(element);
                 let pickedcard = player.Cards[index];
-                console.log(pickedcard);
+                //console.log(pickedcard);
                 if (element.getAttribute("id") == "ground" && player.Turn) {
                     player.removeDrawImage();
                     this.setGroundCard(player.DrawCard);
@@ -846,7 +857,7 @@ function Monke(){
                         player.burn(element);
                     }
                 } else if (!player.FreeThrow && !player.ThrowCards && player.Turn) {
-                    console.log(pickedcard);
+                    //console.log(pickedcard);
                     this.setGroundCard(pickedcard);
                     bot.freeThrow();
                     if (player.DrawCard.cardValue() == pickedcard.cardValue()) {
@@ -870,7 +881,7 @@ function Monke(){
     }
 
     this.botAction = async function() {
-        console.log(this.GroundCards);
+        //console.log(this.GroundCards);
         if (this.GroundCard != null)
             bot.freeThrow();
         let allcardsviewed = true;
@@ -1161,15 +1172,9 @@ function Monke(){
     }
 
     this.calculateResult = function() {
-        if (bot.calculateScore() < player.calculateScore())
-            console.log("Bot Wins");
-        else if (bot.calculateScore() > player.calculateScore())
-            console.log("Player Wins");
-        else
-            console.log("Draw");
-        player.showCards();
-        bot.showCards();
-        setTimeout(sendForm, 5000);
+        setTimeout(player.showCards(), 2000);
+        setTimeout(bot.showCards(), 2000);
+        setTimeout(sendForm, 7000);
     }
 
     this.enableOnclick = function(){
@@ -1217,9 +1222,8 @@ function didViewCards() {
 }
 
 function sendForm(){
-    let btn = document.getElementById("submit_button");
     document.getElementById("playerscore_form").setAttribute("value", parseInt(player.calculateScore()));
     document.getElementById("botscore_form").setAttribute("value", parseInt(bot.calculateScore()));
-    btn.click();
+    setTimeout(submitFormAndResetStore, 1000);
 }
 
