@@ -68,7 +68,7 @@
             <div class="col-12 mt-2">
                 <table class="table table-dark table-striped" id="table_id">
                     <div class="d-flex justify-content-start justify-content-between flex-row align-items-center">
-                        <button id="game_btn" class="btn btn-warning order-1 mt-3"><a href="./index.php">PLAY GAME</a></button>
+                        <button id="game_btn" class="btn btn-warning order-1 mt-3"><a href="./monke.php">PLAY GAME</a></button>
                         <span class="table_caption order-0">
                                 Game Log 
                         </span>
